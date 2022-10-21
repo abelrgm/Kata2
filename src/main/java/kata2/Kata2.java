@@ -1,20 +1,18 @@
 package kata2;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public class Kata2 {
 
     public static void main(String[] args) {
         int [] data = {2, 5, 6, 4, 6, 7, 4, 9 ,8 ,6 ,8 ,1, 2, 5, 3};
         
-        HashMap histogram = new HashMap<Integer, Integer>();
+        Histogram histogram = new Histogram(data);
         
-        for (int key : data) {
-            histogram.put(key, histogram.containsKey(key) ? (int)histogram.get(key) + 1 : 1);
-        }
+        Map<Integer,Integer> histogr = histogram.getHistogram();
         
-        for (Object key : histogram.keySet()) {
-            System.out.println(key + " ==> " + histogram.get(key));
+        for (Object key : histogr.keySet()) {
+            System.out.println(key + " ==> " + histogr.get(key));
         }
     }
 }
